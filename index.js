@@ -41,7 +41,7 @@ app.post("/ocr-pdf", async (req, res) => {
   exec(`pdftoppm ${pdfFile} page -png`, (err) => {
     if (err) {
       fs.unlinkSync(pdfFile);
-      return res.status(500).json({ error: "Error al convertir PDF");
+      return res.status(500).json({ error: "Error al convertir PDF"});
     }
 
     const files = fs.readdirSync(".").filter(f => f.startsWith("page-") && f.endsWith(".png"));
